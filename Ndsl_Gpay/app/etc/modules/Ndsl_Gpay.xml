@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Ndsl_Gpay>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.1</version>
+    </Ndsl_Gpay>
+  </modules>
+</config>
