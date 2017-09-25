@@ -23,7 +23,7 @@ extends Mage_Sales_Model_Quote_Address_Total_Abstract
 
 		 //amount definition
 
-         $gpayAmount = 0.01;
+         $gpayAmount = 10.00;
 
          //amount definition
 

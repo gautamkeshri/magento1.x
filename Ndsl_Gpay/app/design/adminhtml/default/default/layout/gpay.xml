@@ -5,4 +5,11 @@
 	  <block type="gpay/adminhtml_gpay" name="gpay" />
 	</reference>
   </gpay_adminhtml_gpay_index>
+  <adminhtml_sales_order_view>
+        <reference name="order_info">
+        	<action method='setTemplate'><template>gpay/sales/order/info.phtml</template></action>
+        	<block type="adminhtml/sales_order_view_info" name="order_info2" template="sales/order/view/info.phtml"></block>
+            <block type="gpay/adminhtml_gpay_order" name="gpay.order" template='gpay/order.phtml'/>
+        </reference>
+    </adminhtml_sales_order_view>
 </layout>
