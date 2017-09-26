@@ -7,9 +7,9 @@ class Ndsl_Gpay_Model_Observer
 				
 				$quote = $observer->getQuote();
 				$post = Mage::app()->getFrontController()->getRequest()->getPost();
-				if(isset($post['custom']['ssn'])){
-					$var = $post['custom']['ssn'];
-					$quote->setSsn($var);
+				if(isset($post['ndsl']['gpay'])){
+					$var = $post['ndsl']['gpay'];
+					$quote->setGpay($var);
 				}
 				
 			}
@@ -18,13 +18,13 @@ class Ndsl_Gpay_Model_Observer
 			{
 				
 				$quote = $observer->getQuote();
-				if($quote->getSsn()){
-					$var = $quote->getSsn();
+				if($quote->getGpay()){
+					$var = $quote->getGpay();
 					if(!empty($var)){
 						$model = Mage::getModel('gpay/gpay_quote');
-						$model->deteleByQuote($quote->getId(),'ssn');
+						$model->deteleByQuote($quote->getId(),'gpay');
 						$model->setQuoteId($quote->getId());
-						$model->setKey('ssn');
+						$model->setKey('gpay');
 						$model->setValue($var);
 						$model->save();
 					}
@@ -49,15 +49,15 @@ class Ndsl_Gpay_Model_Observer
 				
 				$order = $observer->getOrder();
 				$quote = $observer->getQuote();
-				if($quote->getSsn()){
-					$var = $quote->getSsn();
+				if($quote->getGpay()){
+					$var = $quote->getGpay();
 					if(!empty($var)){
 						$model = Mage::getModel('gpay/gpay_order');
-						$model->deleteByOrder($order->getId(),'ssn');
+						$model->deleteByOrder($order->getId(),'gpay');
 						$model->setOrderId($order->getId());
-						$model->setKey('ssn');
+						$model->setKey('gpay');
 						$model->setValue($var);
-						$order->setSsn($var);
+						$order->setGpay($var);
 						$model->save();
 					}
 				}

@@ -14,6 +14,11 @@ extends Mage_Sales_Model_Quote_Address_Total_Abstract
      */
      public function collect(Mage_Sales_Model_Quote_Address $address)
     {
+
+        $gpayAmount = 0; 
+        $currenQuoteId=Mage::getSingleton('checkout/session')->getQuoteId();
+        $item_quote   = Mage::getModel('sales/quote')->loadByIdWithoutStore($currenQuoteId);
+
          parent :: collect($address);
          $items = $this->_getAddressItems($address);
          if (!count($items)) {
@@ -21,9 +26,11 @@ extends Mage_Sales_Model_Quote_Address_Total_Abstract
          }
          $quote= $address->getQuote();
 
-		 //amount definition
-
-         $gpayAmount = 10.00;
+		//amount definition
+        //if($item_quote->getSsn() > 0)
+            $gpayAmount = $item_quote->getGpay();
+        //else
+        //   $gpayAmount = 0;
 
          //amount definition
 

@@ -183,9 +183,9 @@
      </li>
 	 <li class="fields">
 		<div class="field">
-			<label for="billing:ssn" class="required"><em>*</em><?php echo $this->__('SSN') ?></label>
+			<label for="billing:gpay" class="required"><em>*</em><?php echo $this->__('Gift voucher') ?></label>
 				<div class="input-box">
-					<input type="text" name="custom[ssn]" value="<?php echo $this->htmlEscape($this->getQuote()->getSsn()) ?>" title="<?php echo $this->__('SSN') ?>" class="input-text required-entry" id="billing:ssn" />
+					<input type="text" name="ndsl[gpay]" value="<?php echo $this->htmlEscape($this->getQuote()->getGpay()) ?>" title="<?php echo $this->__('Gift voucher') ?>" class="input-text required-entry" id="billing:gpay" />
                 </div>
         </div>
     </li>

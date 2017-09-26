@@ -1,7 +1,7 @@
 <?php
 class Ndsl_Gpay_Model_Sales_Order extends Mage_Sales_Model_Order{
 	public function hasCustomFields(){
-		$var = $this->getSsn();
+		$var = $this->getGpay();
 		if($var && !empty($var)){
 			return true;
 		}else{
@@ -9,8 +9,8 @@ class Ndsl_Gpay_Model_Sales_Order extends Mage_Sales_Model_Order{
 		}
 	}
 	public function getFieldHtml(){
-		$var = $this->getSsn();
-		$html = '<b>SSN:</b>'.$var.'<br/>';
+		$var = $this->getGpay();
+		$html = '<b>Gift Voucher:</b>'.$var.'<br/>';
 		return $html;
 	}
 }
